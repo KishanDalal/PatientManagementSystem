@@ -15,7 +15,24 @@ import jakarta.validation.constraints.NotNull;
 public class Patient {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private UUID id; 
+  private UUID id;
+  
+  @NotNull
+  private String name;
+
+  @NotNull
+  @Email
+  @Column(unique = true)
+  private String email;
+
+  @NotNull
+  private String address;
+
+  @NotNull
+  private LocalDate dateOfBirth;
+
+  @NotNull
+  private LocalDate registeredDate;
 
   public UUID getId() {
     return id;
@@ -25,8 +42,6 @@ public class Patient {
     this.id = id;
   }
 
-  @NotNull
-  private String name;
 
   public String getName() {
     return name;
@@ -36,10 +51,7 @@ public class Patient {
     this.name = name;
   }
 
-  @NotNull
-  @Email
-  @Column(unique = true)
-  private String email;
+
 
   public String getEmail() {
     return email;
@@ -49,8 +61,6 @@ public class Patient {
     this.email = email;
   }
 
-  @NotNull
-  private String address;
 
   public String getAddress() {
     return address;
@@ -60,8 +70,6 @@ public class Patient {
     this.address = address;
   }
 
-  @NotNull
-  private LocalDate dateOfBirth;
 
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
@@ -71,8 +79,6 @@ public class Patient {
     this.dateOfBirth = dateOfBirth;
   }
 
-  @NotNull
-  private LocalDate registeredDate;
 
   public LocalDate getRegisteredDate() {
     return registeredDate;
